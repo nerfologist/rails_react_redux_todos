@@ -33,4 +33,6 @@ bin/rails s
 
 # Changelog
 
+v0.0.2 Full API-backed handling
+
 v0.0.1 Reading todos from server
