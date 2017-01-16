@@ -1,4 +1,6 @@
 class Api::TodosController < ApplicationController
+  skip_before_action :verify_authenticity_token
+
   def show
     render json: Todo.find(params[:id])
   end
@@ -8,6 +10,7 @@ class Api::TodosController < ApplicationController
   end
 
   def create
+    binding.pry
     if todo = Todo.create(todo_params)
       render json: todo, status: :created
     else
