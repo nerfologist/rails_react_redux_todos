@@ -28,30 +28,39 @@ class TodoForm extends Component {
   }
 
   render() {
+    const { errors } = this.props;
+
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label>
-          Title: 
-          <input type="text"
-            name="title"
-            value={this.state.title}
-            onChange={this.update('title')} />
-        </label>
-        <label>
-          Body: 
-          <input type="text"
-            name="body"
-            value={this.state.body}
-            onChange={this.update('body')} />
-        </label>
-        <input type="submit" />
-      </form>
+      <div>
+        <ul>
+          { Object.keys(errors).map((key, idx) =>
+            <li key={`${key}-${idx}`}>{key} - {errors[key][0]}</li>) }
+        </ul>
+        <form onSubmit={this.handleSubmit}>
+          <label>
+            Title:
+            <input type="text"
+              name="title"
+              value={this.state.title}
+              onChange={this.update('title')} />
+          </label>
+          <label>
+            Body:
+            <input type="text"
+              name="body"
+              value={this.state.body}
+              onChange={this.update('body')} />
+          </label>
+          <input type="submit" />
+        </form>
+      </div>
     );
   }
 }
 
 TodoForm.propTypes = {
-  createTodo: PropTypes.func.isRequired
+  createTodo: PropTypes.func.isRequired,
+  errors: PropTypes.object.isRequired
 };
 
 export default TodoForm;

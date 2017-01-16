@@ -4,14 +4,14 @@ import StepListContainer from '../step_list/step_list_container';
 
 class TodoDetailView extends Component {
   render() {
-    const { removeTodo } = this.props;
+    const { destroyTodo } = this.props;
     const { id, body } = this.props.todo;
 
     return (
       <div>
         <label>Id: {id} </label>
         <label>Body: {body}</label>
-        <button onClick={removeTodo}>
+        <button onClick={destroyTodo}>
           Remove todo
         </button>
         <StepListContainer todo={this.props.todo} />
@@ -22,7 +22,7 @@ class TodoDetailView extends Component {
 
 TodoDetailView.propTypes = {
   todo: PropTypes.object.isRequired,
-  removeTodo: PropTypes.func.isRequired
+  destroyTodo: PropTypes.func.isRequired
 };
 
 export default TodoDetailView;

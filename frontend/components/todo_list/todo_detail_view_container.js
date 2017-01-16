@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
 
-import { removeTodo } from '../../actions/todo_actions';
+import { destroyTodo } from '../../actions/todo_actions';
 import TodoDetailView from './todo_detail_view';
 
 const mapDispatchToProps = (dispatch, { todo }) => ({
-  removeTodo: () => dispatch(removeTodo(todo))
+  destroyTodo: () => dispatch(destroyTodo(todo))
 });
 
 export default connect(

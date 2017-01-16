@@ -9,17 +9,17 @@ class TodoList extends Component {
   }
 
   render() {
-    const { todos, createTodo, removeTodo } = this.props;
+    const { todos, createTodo, updateTodo, errors } = this.props;
 
     return (
       <div>
         <ul>
           { todos.map(todo => <TodoListItem todo={todo}
-                                            key={todo.id}
-                                            createTodo={createTodo}
-                                            removeTodo={removeTodo} />) }
+                                            updateTodo={updateTodo}
+                                            key={todo.id} />) }
         </ul>
-        <TodoForm createTodo={createTodo} />
+        <TodoForm createTodo={createTodo}
+                  errors={errors} />
       </div>
     );
   }
@@ -27,9 +27,11 @@ class TodoList extends Component {
 
 TodoList.propTypes = {
   createTodo: PropTypes.func.isRequired,
-  removeTodo: PropTypes.func.isRequired,
+  destroyTodo: PropTypes.func.isRequired,
+  errors: PropTypes.object.isRequired,
   requestTodos: PropTypes.func.isRequired,
-  todos: PropTypes.array.isRequired
+  todos: PropTypes.array.isRequired,
+  updateTodo: PropTypes.func.isRequired
 };
 
 export default TodoList;

@@ -19,10 +19,10 @@ class TodoListItem extends Component {
 
   toggleDone(evt) {
     evt.preventDefault();
-    const { todo, receiveTodo } = this.props;
+    const { todo, updateTodo } = this.props;
     const toggledTodo = Object.assign({}, todo, { done: !todo.done });
 
-    receiveTodo(toggledTodo);
+    updateTodo(toggledTodo);
   }
 
   render() {
@@ -50,8 +50,7 @@ class TodoListItem extends Component {
 
 TodoListItem.propTypes = {
   todo: PropTypes.object.isRequired,
-  receiveTodo: PropTypes.func.isRequired,
-  removeTodo: PropTypes.func.isRequired
+  updateTodo: PropTypes.func.isRequired
 };
 
 export default TodoListItem;
