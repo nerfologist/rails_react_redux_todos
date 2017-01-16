@@ -1,24 +1,36 @@
-# README
+# Rails/React/Redux todo app
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Minimal app to showcase interaction between Rails, React and Redux.
 
-Things you may want to cover:
+Showcases the following concepts:
 
-* Ruby version
+- Rails:
+  - simple API w/o auth
+- redux:
+  - store
+  - actions
+    - passing actions to components as props
+  - reducer
+    - combining reducers
+  - thunk middleware
+  - thunk action creators
+- react:
+  - stateful components
+  - functional components
+- react-redux
+  - provider
+  - container
 
-* System dependencies
+# How to use
 
-* Configuration
+```sh
+npm install
+npm run watch
+bin/rails s
 
-* Database creation
+(head over to localhost:3000)
+```
 
-* Database initialization
+# Changelog
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+v0.0.1 Reading todos from server
