@@ -20,7 +20,11 @@ export const removeTodo = todo => ({
   todo: todo
 });
 
-// async actions
+// async actions (thunk)
 export const requestTodos = () => dispatch => (
   TodoAPIUtil.fetchTodos().then(todos => dispatch(receiveTodos(todos)))
+);
+
+export const createTodo = todo => dispatch => (
+  TodoAPIUtil.createTodo(todo).then(todo => dispatch(receiveTodo(todo)))
 );

@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { PropTypes, Component } from 'react';
 
 import uniqueId from '../../util/unique_id';
 
-class TodoForm extends React.Component {
+class TodoForm extends Component {
   constructor(props) {
     super(props);
 
@@ -23,13 +23,8 @@ class TodoForm extends React.Component {
     evt.preventDefault();
 
     const newTodo = Object.assign({}, this.state, { id: uniqueId() });
-    this.props.receiveTodo(newTodo);
-
-    this.setState({
-      title: '',
-      body: '',
-      done: false
-    });
+    this.props.createTodo(newTodo)
+      .then(() => this.setState({ title: '', body: '', done: false }));
   }
 
   render() {
@@ -56,7 +51,7 @@ class TodoForm extends React.Component {
 }
 
 TodoForm.propTypes = {
-  receiveTodo: React.PropTypes.func.isRequired
+  createTodo: PropTypes.func.isRequired
 };
 
 export default TodoForm;

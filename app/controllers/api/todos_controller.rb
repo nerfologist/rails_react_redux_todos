@@ -10,7 +10,6 @@ class Api::TodosController < ApplicationController
   end
 
   def create
-    binding.pry
     if todo = Todo.create(todo_params)
       render json: todo, status: :created
     else

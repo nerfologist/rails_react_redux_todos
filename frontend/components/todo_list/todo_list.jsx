@@ -9,27 +9,27 @@ class TodoList extends Component {
   }
 
   render() {
-    const { todos, receiveTodo, removeTodo } = this.props;
+    const { todos, createTodo, removeTodo } = this.props;
 
     return (
       <div>
         <ul>
           { todos.map(todo => <TodoListItem todo={todo}
                                             key={todo.id}
-                                            receiveTodo={receiveTodo}
+                                            createTodo={createTodo}
                                             removeTodo={removeTodo} />) }
         </ul>
-        <TodoForm receiveTodo={receiveTodo} />
+        <TodoForm createTodo={createTodo} />
       </div>
     );
   }
 }
 
 TodoList.propTypes = {
-  todos: PropTypes.array.isRequired,
-  receiveTodo: PropTypes.func.isRequired,
+  createTodo: PropTypes.func.isRequired,
   removeTodo: PropTypes.func.isRequired,
-  requestTodos: PropTypes.func.isRequired
+  requestTodos: PropTypes.func.isRequired,
+  todos: PropTypes.array.isRequired
 };
 
 export default TodoList;
